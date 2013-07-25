@@ -924,13 +924,17 @@ char_autolink_url(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_
 {
 	struct buf *link;
 	size_t link_len, rewind;
+	int unsigned flags = 0;
 
 	if (!rndr->cb.autolink || rndr->in_link_body)
 		return 0;
 
+	if(rndr->ext_flags & MKDEXT_AUTOLINK_SHORT_DOMAINS)
+		flags = SD_AUTOLINK_SHORT_DOMAINS;
+
 	link = rndr_newbuf(rndr, BUFFER_SPAN);
 
-	if ((link_len = sd_autolink__url(&rewind, link, data, offset, size, 0)) > 0) {
+	if ((link_len = sd_autolink__url(&rewind, link, data, offset, size, flags)) > 0) {
 		ob->size -= rewind;
 		rndr->cb.autolink(ob, link, MKDA_NORMAL, rndr->opaque);
 	}

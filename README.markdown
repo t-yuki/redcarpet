@@ -112,6 +112,9 @@ like a reference-style link: it consists of a  marker next to the text (e.g.
 `This is a sentence.[^1]`) and a footnote definition on its own line anywhere
 within the document (e.g. `[^1]: This is a footnote.`).
 
+* `:autolink_short_domains`: parse links even when they are not enclosed in `<>`
+characters and even if they are very short domains.
+
 Example:
 
 ~~~~~ ruby
