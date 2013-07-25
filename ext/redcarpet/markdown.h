@@ -59,6 +59,7 @@ enum mkd_extensions {
 	MKDEXT_HIGHLIGHT = (1 << 10),
 	MKDEXT_FOOTNOTES = (1 << 11),
 	MKDEXT_QUOTE = (1 << 12)
+	MKDEXT_NO_UNDERSCORE_EMPHASIS = (1 << 13)
 };
 
 /* sd_callbacks - functions for rendering parsed data */

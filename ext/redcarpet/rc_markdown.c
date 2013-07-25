@@ -56,6 +56,9 @@ static void rb_redcarpet_md_flags(VALUE hash, unsigned int *enabled_extensions_p
 	if (rb_hash_lookup(hash, CSTR2SYM("quote")) == Qtrue)
 		extensions |= MKDEXT_QUOTE;
 
+	if (rb_hash_lookup(hash, CSTR2SYM("no_underscore_emphasis")) == Qtrue)
+		extensions |= MKDEXT_NO_UNDERSCORE_EMPHASIS;
+
 	if (rb_hash_lookup(hash, CSTR2SYM("lax_spacing")) == Qtrue)
 		extensions |= MKDEXT_LAX_SPACING;
 
